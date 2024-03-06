@@ -1,0 +1,25 @@
+[tool.poetry]
+name = 'dropless-moe-jax'
+version = '0.1.0'
+description = 'A JAX port of the MegaBlocks dropless MoE method, with block sparse kernels.'
+authors = ['Davis Yoshida <dyoshida@ttic.edu>']
+license = 'MIT'
+readme = 'README.md'
+packages = [
+    {include = 'jax_dropless_moe'}
+]
+
+[tool.poetry.dependencies]
+python = '^3.8'
+jax = '^0.4.25'
+jaxlib = '^0.4.25'
+qax = '^0.3.1'
+flax = '^0.8'
+optax = '^0.1.9'
+
+[tool.poetry.dev-dependencies]
+pytest = '^7.3.1'
+
+[build-system]
+requires = ['poetry-core>=1.0.0']
+build-backend = 'poetry.core.masonry.api'
