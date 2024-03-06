@@ -44,6 +44,12 @@ params = model.init(jax.random.key(3), *inputs)
 jax.jit(model.apply)(params, *inputs)
 ```
 
+# TODOs
+
+- [ ] Backward pass
+- [ ] Make sure vmap is actually working (It doesn't crash but I haven't checked it for correctness)
+- [ ] Model parallelism
+
 # Efficiency note
 Because all shapes need to be known at compile time, this implementation pads much more conservatively than the torch implementation. In the worst case, with `K` experts with a block size of `B`, each expert could be assigned `T` tokens where `T % B = 1`, leading to `K * (B - 1)` padding tokens.
 
